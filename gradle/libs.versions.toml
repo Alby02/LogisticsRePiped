@@ -1,0 +1,29 @@
+[versions]
+minecraft = "1.20.1"
+architectury-api = "9.2.14"
+fabric-loader = "0.18.4"
+fabric-api = "0.92.6+1.20.1"
+forge = "1.20.1-47.4.13"
+
+# Plugins
+loom = "1.13.463"
+architectury-plugin = "3.4.162"
+shadow = "9.2.2"
+kotlin = "2.3.0"
+
+
+[libraries]
+minecraft = { group = "net.minecraft", name = "minecraft", version.ref = "minecraft" }
+fabric-loader = { group = "net.fabricmc", name = "fabric-loader", version.ref = "fabric-loader" }
+fabric-api = { group = "net.fabricmc.fabric-api", name = "fabric-api", version.ref = "fabric-api" }
+architectury = { group = "dev.architectury", name = "architectury", version.ref = "architectury-api" }
+architectury-fabric = { group = "dev.architectury", name = "architectury-fabric", version.ref = "architectury-api" }
+architectury-forge = { group = "dev.architectury", name = "architectury-forge", version.ref = "architectury-api" }
+forge = { group = "net.minecraftforge", name = "forge", version.ref = "forge" }
+
+
+[plugins]
+loom = { id = "dev.architectury.loom", version.ref = "loom" }
+architectury = { id = "architectury-plugin", version.ref = "architectury-plugin" }
+shadow = { id = "com.gradleup.shadow", version.ref = "shadow" }
+kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }

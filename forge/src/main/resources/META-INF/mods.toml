@@ -1,0 +1,34 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+license = "EUPL-1.2"
+
+[[mods]]
+modId = "logisticsrepiped"
+version = "${version}"
+displayName = "Logistics RePiped"
+authors = "Alby02, Matrosna"
+description = '''
+This is an example description! Tell everyone what your mod is about!
+'''
+logoFile = "assets/logisticsrepiped/icon.png"
+
+[[dependencies.logisticsrepiped]]
+modId = "forge"
+mandatory = true
+versionRange = "[47,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.logisticsrepiped]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.logisticsrepiped]]
+modId = "architectury"
+mandatory = true
+versionRange = "[9.2.14,)"
+ordering = "AFTER"
+side = "BOTH"
