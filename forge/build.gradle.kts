@@ -1,8 +1,6 @@
 plugins {
-    alias(libs.plugins.loom)
+    id("logisticsrepiped.platform-conventions")
     alias(libs.plugins.architectury)
-    alias(libs.plugins.shadow)
-    alias(libs.plugins.kotlin)
 }
 
 architectury {
@@ -11,51 +9,37 @@ architectury {
     forge()
 }
 
-loom {
-    forge {
-        mixinConfig("testing.mixins.json")
+repositories {
+    maven("https://thedarkcolour.github.io/KotlinForForge/") {
+        name = "Kotlin for Forge"
+        content { includeGroup("thedarkcolour") }
     }
 }
 
-val common by configurations.creating {
-    isCanBeResolved = true
-    isCanBeConsumed = false
-}
-
-val shadowBundle by configurations.creating {
-    isCanBeResolved = true
-    isCanBeConsumed = false
+loom {
+    forge {
+        mixinConfig("logisticsrepiped.mixins.json")
+    }
 }
 
 configurations {
-    compileClasspath.get().extendsFrom(common)
-    runtimeClasspath.get().extendsFrom(common)
-    getByName("developmentForge").extendsFrom(common)
+    getByName("developmentForge").extendsFrom(configurations.getByName("common"))
 }
 
 dependencies {
     "minecraft"(libs.minecraft)
-    "mappings"(loom.officialMojangMappings())
+    "mappings"(loom.layered {
+        officialMojangMappings()
+        parchment("org.parchmentmc.data:parchment-${libs.versions.minecraft.get()}:${libs.versions.parchment.get()}@zip")
+    })
     "forge"(libs.forge)
     modImplementation(libs.architectury.forge)
-
-    common(project(path = ":common", configuration = "namedElements")) { isTransitive = false }
-    shadowBundle(project(path = ":common", configuration = "transformProductionForge"))
+    implementation(libs.forge.kotlin)
 }
 
 tasks.processResources {
     inputs.property("version", project.version)
-
     filesMatching("META-INF/mods.toml") {
         expand("version" to project.version)
     }
-}
-
-tasks.shadowJar {
-    configurations = listOf(shadowBundle)
-    archiveClassifier.set("dev-shadow")
-}
-
-tasks.remapJar {
-    input.set(tasks.shadowJar.get().archiveFile)
 }

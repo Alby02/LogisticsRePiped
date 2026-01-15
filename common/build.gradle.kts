@@ -1,7 +1,7 @@
 plugins {
+    id("logisticsrepiped.common-conventions")
     alias(libs.plugins.loom)
     alias(libs.plugins.architectury)
-    alias(libs.plugins.kotlin)
 }
 
 architectury {
@@ -9,9 +9,19 @@ architectury {
     common("fabric", "forge")
 }
 
+loom {
+    mixin {
+        useLegacyMixinAp = true
+        defaultRefmapName.set("logisticsrepiped.refmap.json")
+    }
+}
+
 dependencies {
     "minecraft"(libs.minecraft)
-    "mappings"(loom.officialMojangMappings())
+    "mappings"(loom.layered {
+        officialMojangMappings()
+        parchment("org.parchmentmc.data:parchment-${libs.versions.minecraft.get()}:${libs.versions.parchment.get()}@zip")
+    })
     modImplementation(libs.fabric.loader)
     modImplementation(libs.architectury)
 }

@@ -21,16 +21,16 @@ object ModBlocks {
     val BLOCKS: DeferredRegister<Block> = DeferredRegister.create(CommonClass.MOD_ID, Registries.BLOCK)
     val ITEMS: DeferredRegister<Item> = DeferredRegister.create(CommonClass.MOD_ID, Registries.ITEM)
 
-    val GREEN_GEM_BLOCK: RegistrySupplier<Block> = registerBlock("greengemblock",
+    val GREEN_GEM_BLOCK: RegistrySupplier<Block> = registerBlock("greengemblock") {
         Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.AMETHYST_CLUSTER))
-    )
+    }
     
-    val GREEN_GEM_ORE: RegistrySupplier<Block> = registerBlock("greengemore",
+    val GREEN_GEM_ORE: RegistrySupplier<Block> = registerBlock("greengemore") {
         Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.AMETHYST_CLUSTER))
-    )
+    }
 
-    private fun registerBlock(name: String, block: Block): RegistrySupplier<Block> {
-        val registeredBlock = BLOCKS.register(name) { block }
+    private fun registerBlock(name: String, blockSupplier: () -> Block): RegistrySupplier<Block> {
+        val registeredBlock = BLOCKS.register(name, blockSupplier)
         ITEMS.register(name) {
              BlockItem(registeredBlock.get(), Item.Properties().`arch$tab`(ModItemGroups.GREEN_GEM_GROUP))
         }

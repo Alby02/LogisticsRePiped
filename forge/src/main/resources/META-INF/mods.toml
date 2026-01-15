@@ -1,11 +1,11 @@
-modLoader = "javafml"
-loaderVersion = "[47,)"
+modLoader = "kotlinforforge"
+loaderVersion = "[4.12,)"
 license = "EUPL-1.2"
 
 [[mods]]
 modId = "logisticsrepiped"
 version = "${version}"
-displayName = "Logistics RePiped"
+displayName = "LogisticsRePiped"
 authors = "Alby02, Matrosna"
 description = '''
 This is an example description! Tell everyone what your mod is about!
@@ -31,4 +31,11 @@ modId = "architectury"
 mandatory = true
 versionRange = "[9.2.14,)"
 ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.logisticsrepiped]]
+modId = "kotlinforforge"
+mandatory = true
+versionRange = "[4.12,)"
+ordering = "NONE"
 side = "BOTH"

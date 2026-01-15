@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "logisticsrepiped",
   "version": "${version}",
-  "name": "Logistics RePiped",
+  "name": "LogisticsRePiped",
   "description": "This is an example description! Tell everyone what your mod is about!",
   "authors": [
     "Alby02",
@@ -17,10 +17,16 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "it.alby02.logisticsRePiped.fabric.FabricEntrypoint"
+      {
+        "adapter": "kotlin",
+        "value": "it.alby02.logisticsRePiped.fabric.FabricEntrypoint"
+      }
     ],
     "fabric-datagen": [
-      "it.alby02.logisticsRePiped.fabric.datagen.DataGenerationEntrypoint"
+      {
+        "adapter": "kotlin",
+        "value": "it.alby02.logisticsRePiped.fabric.datagen.DataGenerationEntrypoint"
+      }
     ]
   },
   "mixins": [
@@ -28,6 +34,7 @@
   ],
   "depends": {
     "fabricloader": ">=0.18.4",
+    "fabric-language-kotlin": ">=1.13.8+kotlin.2.3.0",
     "minecraft": "~1.20.1",
     "java": ">=17",
     "architectury": ">=9.2.14",

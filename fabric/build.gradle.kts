@@ -1,8 +1,6 @@
 plugins {
-    alias(libs.plugins.loom)
+    id("logisticsrepiped.platform-conventions")
     alias(libs.plugins.architectury)
-    alias(libs.plugins.shadow)
-    alias(libs.plugins.kotlin)
 }
 
 architectury {
@@ -11,44 +9,26 @@ architectury {
     fabric()
 }
 
-loom {
-    runs {
-        create("datagen") {
-            inherit(getByName("server"))
-            name("Data Generation")
-            vmArg("-Dfabric-api.datagen")
-            vmArg("-Dfabric-api.datagen.output-dir=${project(":common").file("src/main/generated")}")
-            vmArg("-Dfabric-api.datagen.modid=logisticsrepiped")
-            runDir("build/datagen")
-        }
+fabricApi {
+    configureDataGeneration {
+        outputDirectory = file("${project(":common").file("src/main/generated")}")
     }
 }
 
-val common by configurations.creating {
-    isCanBeResolved = true
-    isCanBeConsumed = false
-}
-
-val shadowBundle by configurations.creating {
-    isCanBeResolved = true
-    isCanBeConsumed = false
-}
-
 configurations {
-    compileClasspath.get().extendsFrom(common)
-    runtimeClasspath.get().extendsFrom(common)
-    getByName("developmentFabric").extendsFrom(common)
+    getByName("developmentFabric").extendsFrom(configurations.getByName("common"))
 }
 
 dependencies {
     "minecraft"(libs.minecraft)
-    "mappings"(loom.officialMojangMappings())
+    "mappings"(loom.layered {
+        officialMojangMappings()
+        parchment("org.parchmentmc.data:parchment-${libs.versions.minecraft.get()}:${libs.versions.parchment.get()}@zip")
+    })
     modImplementation(libs.fabric.loader)
     modImplementation(libs.fabric.api)
     modImplementation(libs.architectury.fabric)
-
-    common(project(path = ":common", configuration = "namedElements")) { isTransitive = false }
-    shadowBundle(project(path = ":common", configuration = "transformProductionFabric"))
+    modImplementation(libs.fabric.kotlin)
 }
 
 tasks.processResources {
@@ -57,13 +37,4 @@ tasks.processResources {
     filesMatching("fabric.mod.json") {
         expand("version" to project.version)
     }
-}
-
-tasks.shadowJar {
-    configurations = listOf(shadowBundle)
-    archiveClassifier.set("dev-shadow")
-}
-
-tasks.remapJar {
-    input.set(tasks.shadowJar.get().archiveFile)
 }
