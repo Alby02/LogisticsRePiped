@@ -29,10 +29,27 @@ object ModBlocks {
         Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.AMETHYST_CLUSTER))
     }
 
+    // --- Pipes ---
+    val UNROUTED_PIPE_BLOCK: RegistrySupplier<Block> = registerBlock("unrouted_pipe") {
+        UnroutedPipeBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().isViewBlocking { _, _, _ -> false })
+    }
+
+    val BASIC_PIPE_BLOCK: RegistrySupplier<Block> = registerBlock("basic_pipe") {
+        BasicPipeBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().isViewBlocking { _, _, _ -> false })
+    }
+
+    val EXTRACTION_PIPE_BLOCK: RegistrySupplier<Block> = registerBlock("extraction_pipe") {
+        ExtractionPipeBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().isViewBlocking { _, _, _ -> false })
+    }
+
+    val INSERTION_PIPE_BLOCK: RegistrySupplier<Block> = registerBlock("insertion_pipe") {
+        InsertionPipeBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().isViewBlocking { _, _, _ -> false })
+    }
+
     private fun registerBlock(name: String, blockSupplier: () -> Block): RegistrySupplier<Block> {
         val registeredBlock = BLOCKS.register(name, blockSupplier)
         ITEMS.register(name) {
-             BlockItem(registeredBlock.get(), Item.Properties().`arch$tab`(ModItemGroups.GREEN_GEM_GROUP))
+             BlockItem(registeredBlock.get(), Item.Properties().`arch$tab`(ModItemGroups.LOGISTICS_TAB))
         }
         return registeredBlock
     }

@@ -1,0 +1,249 @@
+{
+    "credit": "Made with Blockbench",
+    "textures": {
+        "particle": "block/glass",
+        "pipe": "block/glass"
+    },
+    "elements": [
+        {
+            "name": "connection_south_tw",
+            "from": [
+                6,
+                9,
+                10
+            ],
+            "to": [
+                7,
+                10,
+                16
+            ],
+            "faces": {
+                "up": {
+                    "uv": [
+                        6,
+                        10,
+                        7,
+                        16
+                    ],
+                    "texture": "#pipe"
+                },
+                "down": {
+                    "uv": [
+                        6,
+                        10,
+                        7,
+                        16
+                    ],
+                    "texture": "#pipe"
+                },
+                "east": {
+                    "uv": [
+                        9,
+                        10,
+                        10,
+                        16
+                    ],
+                    "texture": "#pipe"
+                },
+                "west": {
+                    "uv": [
+                        9,
+                        10,
+                        10,
+                        16
+                    ],
+                    "texture": "#pipe"
+                },
+                "south": {
+                    "uv": [
+                        6,
+                        6,
+                        7,
+                        7
+                    ],
+                    "texture": "#pipe"
+                }
+            }
+        },
+        {
+            "name": "connection_south_te",
+            "from": [
+                9,
+                9,
+                10
+            ],
+            "to": [
+                10,
+                10,
+                16
+            ],
+            "faces": {
+                "up": {
+                    "uv": [
+                        9,
+                        10,
+                        10,
+                        16
+                    ],
+                    "texture": "#pipe"
+                },
+                "down": {
+                    "uv": [
+                        6,
+                        10,
+                        7,
+                        16
+                    ],
+                    "texture": "#pipe"
+                },
+                "east": {
+                    "uv": [
+                        6,
+                        10,
+                        7,
+                        16
+                    ],
+                    "texture": "#pipe"
+                },
+                "west": {
+                    "uv": [
+                        9,
+                        10,
+                        10,
+                        16
+                    ],
+                    "texture": "#pipe"
+                },
+                "south": {
+                    "uv": [
+                        9,
+                        6,
+                        10,
+                        7
+                    ],
+                    "texture": "#pipe"
+                }
+            }
+        },
+        {
+            "name": "connection_south_bw",
+            "from": [
+                6,
+                6,
+                10
+            ],
+            "to": [
+                7,
+                7,
+                16
+            ],
+            "faces": {
+                "up": {
+                    "uv": [
+                        6,
+                        10,
+                        7,
+                        16
+                    ],
+                    "texture": "#pipe"
+                },
+                "down": {
+                    "uv": [
+                        9,
+                        10,
+                        10,
+                        16
+                    ],
+                    "texture": "#pipe"
+                },
+                "east": {
+                    "uv": [
+                        6,
+                        10,
+                        7,
+                        16
+                    ],
+                    "texture": "#pipe"
+                },
+                "west": {
+                    "uv": [
+                        6,
+                        10,
+                        7,
+                        16
+                    ],
+                    "texture": "#pipe"
+                },
+                "south": {
+                    "uv": [
+                        6,
+                        9,
+                        7,
+                        10
+                    ],
+                    "texture": "#pipe"
+                }
+            }
+        },
+        {
+            "name": "connection_south_be",
+            "from": [
+                9,
+                6,
+                10
+            ],
+            "to": [
+                10,
+                7,
+                16
+            ],
+            "faces": {
+                "up": {
+                    "uv": [
+                        9,
+                        10,
+                        10,
+                        16
+                    ],
+                    "texture": "#pipe"
+                },
+                "down": {
+                    "uv": [
+                        9,
+                        10,
+                        10,
+                        16
+                    ],
+                    "texture": "#pipe"
+                },
+                "east": {
+                    "uv": [
+                        9,
+                        10,
+                        10,
+                        16
+                    ],
+                    "texture": "#pipe"
+                },
+                "west": {
+                    "uv": [
+                        6,
+                        10,
+                        7,
+                        16
+                    ],
+                    "texture": "#pipe"
+                },
+                "south": {
+                    "uv": [
+                        9,
+                        9,
+                        10,
+                        10
+                    ],
+                    "texture": "#pipe"
+                }
+            }
+        }
+    ]
+}

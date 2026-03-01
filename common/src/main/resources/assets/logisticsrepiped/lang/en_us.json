@@ -5,5 +5,12 @@
   "block.logisticsrepiped.greengemore": "Green Gem Ore",
 
 
-  "itemgroup.gem": "Gemma gemmina"
+  "itemgroup.logisticsrepiped": "LogisticsRePiped",
+
+  "block.logisticsrepiped.unrouted_pipe": "Unrouted Pipe",
+  "block.logisticsrepiped.basic_pipe": "Basic Pipe",
+  "block.logisticsrepiped.extraction_pipe": "Extraction Pipe",
+  "block.logisticsrepiped.insertion_pipe": "Insertion Pipe",
+  
+  "item.logisticsrepiped.wrench": "Logistics Wrench"
 }

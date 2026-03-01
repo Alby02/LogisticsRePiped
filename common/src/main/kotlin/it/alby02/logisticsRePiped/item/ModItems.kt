@@ -15,7 +15,11 @@ object ModItems {
     val ITEMS: DeferredRegister<Item> = DeferredRegister.create(CommonClass.MOD_ID, Registries.ITEM)
 
     val GREEN_GEM: RegistrySupplier<Item> = ITEMS.register("greengem") {
-        Item(Item.Properties().`arch$tab`(ModItemGroups.GREEN_GEM_GROUP))
+        Item(Item.Properties().`arch$tab`(ModItemGroups.LOGISTICS_TAB))
+    }
+
+    val WRENCH: RegistrySupplier<Item> = ITEMS.register("wrench") {
+        WrenchItem(Item.Properties().`arch$tab`(ModItemGroups.LOGISTICS_TAB).stacksTo(1))
     }
 
     fun register() {

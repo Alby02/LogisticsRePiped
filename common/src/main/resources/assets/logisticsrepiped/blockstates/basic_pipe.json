@@ -1,0 +1,62 @@
+{
+    "multipart": [
+        {
+            "apply": {
+                "model": "logisticsrepiped:block/basic_pipe_core"
+            }
+        },
+        {
+            "when": {
+                "north": "true"
+            },
+            "apply": {
+                "model": "logisticsrepiped:block/basic_pipe_extension"
+            }
+        },
+        {
+            "when": {
+                "east": "true"
+            },
+            "apply": {
+                "model": "logisticsrepiped:block/basic_pipe_extension",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "south": "true"
+            },
+            "apply": {
+                "model": "logisticsrepiped:block/basic_pipe_extension",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "west": "true"
+            },
+            "apply": {
+                "model": "logisticsrepiped:block/basic_pipe_extension",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "up": "true"
+            },
+            "apply": {
+                "model": "logisticsrepiped:block/basic_pipe_extension",
+                "x": 270
+            }
+        },
+        {
+            "when": {
+                "down": "true"
+            },
+            "apply": {
+                "model": "logisticsrepiped:block/basic_pipe_extension",
+                "x": 90
+            }
+        }
+    ]
+}

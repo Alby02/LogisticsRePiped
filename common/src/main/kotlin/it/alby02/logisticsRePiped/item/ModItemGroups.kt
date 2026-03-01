@@ -17,9 +17,9 @@ import it.alby02.logisticsRePiped.CommonClass
 object ModItemGroups {
     val TABS: DeferredRegister<CreativeModeTab> = DeferredRegister.create(CommonClass.MOD_ID, Registries.CREATIVE_MODE_TAB)
 
-    val GREEN_GEM_GROUP: RegistrySupplier<CreativeModeTab> = TABS.register("gem") {
+    val LOGISTICS_TAB: RegistrySupplier<CreativeModeTab> = TABS.register("main") {
         CreativeTabRegistry.create(
-            Component.translatable("itemgroup.gem")
+            Component.translatable("itemgroup.logisticsrepiped")
         ) {
             ItemStack(ModItems.GREEN_GEM.get())
         }

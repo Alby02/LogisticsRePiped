@@ -1,0 +1,6 @@
+{
+    "parent": "logisticsrepiped:block/pipe_extension_template",
+    "textures": {
+        "pipe": "logisticsrepiped:block/basic_pipe"
+    }
+}
